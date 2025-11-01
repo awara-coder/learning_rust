@@ -27,6 +27,22 @@ fn main() {
     print_value(12);
     let total = sum(12, 12);
     println!("the total is {total}");
+
+    let mut number = 3;
+    while number != 0 {
+        println!("{number}");
+        number -= 1;
+    }
+    let mut counter = 0;
+    let counter = loop {
+        counter = counter + 1;
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+    println!("value fo counter {counter}");
+
+    println!("LIFTOFF!");
 }
 
 fn print_value(value: i32) {
