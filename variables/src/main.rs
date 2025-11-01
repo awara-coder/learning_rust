@@ -43,6 +43,11 @@ fn main() {
     println!("value fo counter {counter}");
 
     println!("LIFTOFF!");
+
+    for i in 1..=10 {
+        let ith_fibonacci_number = nth_fibonacci_number(i);
+        println!("{i}'th number is {ith_fibonacci_number}");
+    }
 }
 
 fn print_value(value: i32) {
@@ -51,4 +56,23 @@ fn print_value(value: i32) {
 
 fn sum(value_1: i32, value_2: i32) -> i32 {
     value_1 + value_2
+}
+
+// Fibonacci series: 0, 1, 1, 2, 3, 5, 7
+fn nth_fibonacci_number(n: i64) -> i64 {
+    if n <= 2 {
+        return n - 1;
+    }
+
+    let mut last: i64 = 1;
+    let mut second_last: i64 = 0;
+    let mut solution: i64 = 1;
+
+    for _ in 1..(n - 1) {
+        solution = last + second_last;
+        second_last = last;
+        last = solution;
+    }
+
+    return solution;
 }
